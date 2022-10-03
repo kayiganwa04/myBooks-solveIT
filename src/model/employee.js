@@ -1,0 +1,41 @@
+const mongoose=require("mongoose");
+const employeeSchema= new mongoose.Schema({
+
+    fullname:{
+        type:String,
+        required:true,
+        max:255
+    },
+    email:{
+        type:String,
+        required:true,
+        max:255
+    },
+    phone:{
+        type:String,
+        required:true,
+        max:20,
+        unique:true
+    },
+    gender:{
+        type:String,
+        required:true,
+        max:6
+    },
+    hire_date:{
+        type:Date,
+        required:true,
+    },
+    date_of_birth:{
+        type:Date,
+        required:true,
+    },
+    salary:{
+        type:Number,
+        required:true
+    },
+    CreatedAt:{
+        type:Date,
+        default:Date.now
+    }}) 
+module.exports=mongoose.model('employee',employeeSchema);
